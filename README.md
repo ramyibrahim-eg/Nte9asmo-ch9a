@@ -32,38 +32,19 @@ Below are sample screens from the application.
 - Notifications: `expo-notifications` (client) and Firebase configuration
 - Storage: `@react-native-async-storage/async-storage`
 
-## Architecture Overview
+## What the App Does
 
-The project follows a clean, modular structure with clear separation of concerns:
-
-- Components: Reusable UI elements and feature blocks
-  - `src/components/*` (e.g., reports cards, modals, profile blocks)
-- Screens: Route-level views for auth and dashboard experiences
-  - Auth: `src/screens/Auth/*` (Login, Verify OTP, Reset Password)
-  - Dashboard: `src/screens/dashboard/*` (Notifications, Change Password)
-  - Utilities: `src/screens/NotNetWorkScreen.js` (offline guard)
-- Hooks: Data access and app mechanics
-  - `src/hooks/useTasks.js`, `src/hooks/useFamilies.js`, `src/hooks/useReportsUserStats.js`
-  - `src/hooks/useNotifications.js` (client push), `src/hooks/useAuthStorage.js`
-  - `src/hooks/ApiBaseUrl.js` (backend base URL abstraction)
-- Localization: Language configuration and resources
-  - `src/lang/i18n.js` with `src/lang/locales/ar/` and `src/lang/locales/fr/`
-- Navigation: Central navigation ref for programmatic routing
-  - `src/navigation/navigationRef.js`
-- State & Events: Lightweight bus for auth-related flows
-  - `src/state/authBus.js`
-- Utilities: Pure functions for analytics and time computations
-  - `src/utils/computeReportsFromFamilies.js`
-  - `src/utils/computeTimeReportsFromFamilies.js`
-- Config & Notifications
-  - `src/config/app.js` (UI/theme and app settings)
-  - `src/config/notifications-handler.js` (client-side notifications setup)
-
-This layout aims to keep business logic within hooks and utilities, UI within components/screens, and side effects isolated (notifications, storage, network).
+- Create and manage family tasks and activities.
+- Assign tasks to family members and track completion.
+- Track time spent on activities (where applicable).
+- Generate clear reports and analytics (daily / weekly / overall).
+- Support Arabic (RTL) and French with runtime language switching.
+- Send reminders and updates via push notifications.
+- Handle offline scenarios with a friendly fallback screen.
 
 ## Project Structure
 
-High-level overview (no internal file references):
+High-level overview:
 
 ```text
 app/
@@ -81,50 +62,6 @@ app/
    ├─ state/              # Lightweight event bus (e.g., auth flows)
    └─ utils/              # Pure functions for reports and helpers
 ```
-
-## How It Works
-
-- App bootstraps providers and navigation at startup.
-- Authentication flow handles login, OTP verification, and password reset.
-- Hooks encapsulate data access, storage, notifications, and connectivity.
-- Reporting logic uses pure utilities to compute daily/weekly/overall stats.
-- Internationalization supports Arabic (RTL) and French with dynamic switching.
-- Notifications register device tokens and receive task reminders.
-- Network guard detects offline state and shows a friendly fallback screen.
-
-## Module Guide (Responsibilities)
-
-- Components: UI-only, stateless where possible; accept data via props.
-- Hooks: encapsulate fetching, storage, notifications; return data + actions.
-- Utils: pure functions for stats/time calculations; easy to test.
-- Screens: orchestrate hooks + components at the route level.
-- Config: theming, app options, and notifications bootstrap.
-- Lang: i18n setup and translation resources.
-- Navigation: programmatic navigation helpers.
-
-## Presentation Guide (How to explain to companies)
-
-- Start with the problem: family task coordination and progress visibility.
-- Demo the flow: assign tasks → track time → see reports → notifications.
-- Walk through architecture: components, hooks, screens, utils, i18n, navigation.
-- Highlight quality: separation of concerns, reusable hooks, pure utils, RTL/i18n.
-- Show maintainability: clear folder naming, modular responsibilities, typed setup where applicable.
-- Conclude with roadmap: performance, accessibility, additional locales, CI builds.
-
-## Clean Code Practices
-
-- Separation of concerns: UI, logic, and side effects live in distinct modules.
-- Descriptive naming: Components, hooks, and utils are named by intent.
-- Reusable hooks: Data fetching and persistence handled via composable hooks.
-- Pure utilities: Reporting and time calculations are pure and unit-friendly.
-- Localization-first: All user strings reside in i18n resources, enabling RTL.
-- Defensive coding: Network guards and predictable error surfaces.
-
-## Configuration Overview
-
-- Backend base URL: set in your app settings.
-- Android services: include the appropriate Google services configuration.
-- App settings: adjust theme and general options as needed.
 
 ## Getting Started
 
@@ -150,26 +87,11 @@ npm run android
 npm run ios
 ```
 
-### Minimal Configuration (Non-sensitive)
+## Minimal Configuration (Non-sensitive)
 
 - Backend base URL: update `src/hooks/ApiBaseUrl.js` to point to your API.
 - Firebase client config: ensure `google-services.json` exists for Android (do not commit secrets publicly).
 - App settings and theme: adjust `src/config/app.js`.
-
-### Optional: EAS Build (Cloud CI)
-
-If you use Expo Application Services (EAS), configure profiles in `eas.json` and run:
-
-```bash
-# Log in to Expo (interactive)
-npx expo login
-
-# Build for Android (choose a profile defined in eas.json)
-npx eas build -p android --profile preview
-
-# Build for iOS (requires macOS/Apple Developer setup)
-npx eas build -p ios --profile preview
-```
 
 ## Internationalization (i18n)
 
