@@ -29,11 +29,11 @@ This repository contains a real, client-delivered application composed of:
 Experience the intuitive and modern interface designed for seamless family task management:
 
 <p align="center">
-  <img src="app/Screenshots/1.jpeg" alt="Login & Authentication" width="200" />
-  <img src="app/Screenshots/2.jpeg" alt="Task Management" width="200" />
-  <img src="app/Screenshots/3.jpeg" alt="Family Dashboard" width="200" />
-  <img src="app/Screenshots/4.jpeg" alt="Reports & Analytics" width="200" />
-  <img src="app/Screenshots/5.jpeg" alt="Notifications" width="200" />
+  <img src="Screenshots/1.jpeg" alt="Login & Authentication" width="200" />
+  <img src="Screenshots/2.jpeg" alt="Task Management" width="200" />
+  <img src="Screenshots/3.jpeg" alt="Family Dashboard" width="200" />
+  <img src="Screenshots/4.jpeg" alt="Reports & Analytics" width="200" />
+  <img src="Screenshots/5.jpeg" alt="Notifications" width="200" />
 </p>
 
 ### Interface Features
