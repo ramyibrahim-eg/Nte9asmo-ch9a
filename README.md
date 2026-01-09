@@ -20,9 +20,9 @@ This repository contains a real, client-delivered application composed of:
 
 ## Links
 
-- Web Dashboard: https://nte9asmoch9a.com
-- Google Play (Android): https://play.google.com/store/apps/details?id=com.xcodes.nte9asmoCh9a
-- App Store (iOS): https://apps.apple.com/app/com.xcodes.nte9asmoCh9a
+- Web Dashboard: [Web](https://nte9asmoch9a.com)
+- Google Play (Android): [play.google](https://play.google.com/store/apps/details?id=com.xcodes.nte9asmoCh9a)
+- App Store (iOS): [apps.apple](https://apps.apple.com/ma/app/nte9asmoch9a/id6757267274)
 
 ## 📱 Application Screenshots
 
